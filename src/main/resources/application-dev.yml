@@ -1,0 +1,34 @@
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /user-app
+      settings:
+        trace: false
+        web-allow-others: false
+  datasource:
+    url: jdbc:h2:mem:gadget-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: adminCart
+    password: 123456789
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        use_sql_comments: true
+        format_sql: true
+
+
+jwt:
+  expiration: 3600000
+
+validation:
+  email-regex: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+  password-regex: ^[a-zA-Z][a-zA-Z0-9]{7,}$

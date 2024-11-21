@@ -1,0 +1,27 @@
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  h2:
+    console:
+      enabled: true
+      path: ${nombre-app-variable-entorno}
+      settings:
+        trace: false
+        web-allow-others: false
+  datasource:
+    url: ${url-prod-base-datos}
+    username: ${username-bbdd-test}
+    password: ${password-bbdd-test}
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: ${ddl-test}
+    properties:
+      hibernate:
+        dialect: ${dialect-bbdd-test}
+        use_sql_comments: false
+        format_sql: false
+
